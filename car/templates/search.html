@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Search results</h1>
+
+<ul>
+    {% for car in results %}
+    <li>
+        <a href="{% url 'detail' pk=car.pk %}">{{ car.car_name }}</a>
+        <!-- <h2>{{ car.car_name }}</h2> -->
+        <p>{{ car.description }}</p>
+        <a href="{% url 'delete' pk=car.pk %}">Delete</a>
+    </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'home' %}">Let's go back home!</a>
+
+{% endblock %}

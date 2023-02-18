@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    List of cars
+{% endblock %}
+
+{% block content %}
+    <h1>The list of cars</h1>
+    <a href="{% url 'create' %}">New car</a>
+    <ul>
+        {% for car in cars %}
+        <li>
+            <a href="{% url 'detail' pk=car.pk %}">{{ car.car_name }}</a>
+            <!-- <h2>{{ car.car_name }}</h2> -->
+            <p>{{ car.description }}</p>
+            <a href="{% url 'delete' pk=car.pk %}">Delete</a>
+        </li>
+        {% endfor %}  
+    </ul>
+{% endblock %}
