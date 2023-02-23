@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
+from django.db.models import Q
 
 from .models import Vehicle
 from .forms import VehicleForm, CommentForm
